@@ -19,9 +19,10 @@
       console.log(marked('# Lawrence'));
 
       function updatePreview() {
-        document.getElementById('preview').innerHTML = marked(
-          document.getElementById('editor').value
-        );
+        let previewElement = document.getElementById('preview');
+        let editorValue = document.getElementById('editor').value;
+        let markedUpHTML = marked(editorValue);
+        previewElement.innerHTML = markedUpHTML;
       }
     </script>
   </head>
@@ -34,17 +35,17 @@
       </div>
       <div class="row">
         <div class="col-6 bg-danger">
-          <p>The editor is here</p>
+          <h3>Editor</h3>
           <textarea
             name=""
             id="editor"
-            onkeydown="updatePreview()"
+            onkeyup="updatePreview()"
             cols="50"
             rows="5"
           ></textarea>
         </div>
         <div class="col-6 bg-success">
-          <p>The previewer will be here</p>
+          <h3>Preview</h3>
           <div id="preview"></div>
         </div>
       </div>
