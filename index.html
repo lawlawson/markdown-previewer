@@ -24,9 +24,14 @@
         let markedUpHTML = marked(editorValue);
         previewElement.innerHTML = markedUpHTML;
       }
+
+      function setDefault() {
+        let editorField = document.getElementById('editor');
+        editorField.value = 'Lawrence';
+      }
     </script>
   </head>
-  <body>
+  <body onload="setDefault()">
     <div class="container-fluid">
       <div class="row">
         <div class="col text-center text-white bg-primary">
@@ -40,7 +45,7 @@
             name=""
             id="editor"
             onkeyup="updatePreview()"
-            cols="50"
+            cols="30"
             rows="5"
           ></textarea>
         </div>
